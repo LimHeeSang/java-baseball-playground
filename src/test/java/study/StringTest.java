@@ -29,4 +29,16 @@ public class StringTest {
         Assertions.assertThat(splited2[0]).isEqualTo("1");
     }
 
+    @Test
+    void substring() {
+        //given
+        String str = "(1,2)";
+
+        //when
+        String result = str.substring(1, 4);
+
+        //then
+        Assertions.assertThat(result).isEqualTo("1,2");
+    }
+
 }
