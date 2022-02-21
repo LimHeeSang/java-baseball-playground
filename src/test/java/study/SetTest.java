@@ -28,9 +28,9 @@ public class SetTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3})
-    void contains(int number) {
-        org.junit.jupiter.api.Assertions.assertTrue(numbers.contains(number));
+    @CsvSource( value = {"1:true", "2:true", "3:true", "4:false", "5:false"}, delimiter = ':')
+    void contains(int number, boolean result) {
+        Assertions.assertThat(numbers.contains(number)).isEqualTo(result);
     }
 
 
