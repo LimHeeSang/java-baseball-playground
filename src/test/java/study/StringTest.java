@@ -41,4 +41,18 @@ public class StringTest {
         Assertions.assertThat(result).isEqualTo("1,2");
     }
 
+    @Test
+    void charAt() {
+        //given
+        String str = "abc";
+
+        //when
+        char c = str.charAt(0);
+
+        Assertions.assertThatExceptionOfType(IndexOutOfBoundsException.class)
+                .isThrownBy(() -> str.charAt(5));
+
+        //then
+        Assertions.assertThat(c).isEqualTo('a');
+    }
 }
