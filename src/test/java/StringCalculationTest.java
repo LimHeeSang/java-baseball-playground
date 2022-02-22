@@ -1,12 +1,30 @@
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
 class StringCalculationTest {
     StringCalculation calculation = new StringCalculation();
+
+    @Test
+    void setTarget() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+        String[] expect = {"2", "+", "3", "*", "4", "/", "2"};
+
+        Method method = StringCalculation.class.getDeclaredMethod("setTarget", String.class);
+        method.setAccessible(true);
+        method.invoke(calculation, "2 + 3 * 4 / 2");
+
+        Field field = StringCalculation.class.getDeclaredField("list");
+        field.setAccessible(true);
+        String[] actual = (String[]) field.get(calculation);
+
+        for (int i = 0; i < actual.length; i++) {
+            Assertions.assertThat(actual[i]).isEqualTo(expect[i]);
+        }
+    }
+
 
     @Test
     void add() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
@@ -46,9 +64,7 @@ class StringCalculationTest {
 
     @Test
     void operation() {
-        calculation.setTarget("2 + 3 * 4 / 2");
-
-        int result = calculation.operation();
+        int result = calculation.operation("2 + 3 * 4 / 2");
 
         Assertions.assertThat(result).isEqualTo(10);
     }
