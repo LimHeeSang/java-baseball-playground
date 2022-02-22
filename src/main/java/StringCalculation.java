@@ -1,7 +1,9 @@
+import java.util.Scanner;
+
 public class StringCalculation {
     private String[] list;
 
-    public void setTarget(String target) {
+    private void setTarget(String target) {
         list = target.split(" ");
     }
 
@@ -21,7 +23,8 @@ public class StringCalculation {
         return x / y;
     }
 
-    public int operation() {
+    public int operation(String target) {
+        setTarget(target);
         int temp = Integer.parseInt(list[0]);
 
         for (int i = 1; i < list.length; i+=2) {
@@ -37,6 +40,16 @@ public class StringCalculation {
         }
 
         return temp;
+    }
+
+    public static void main(String[] args) {
+        StringCalculation calculation = new StringCalculation();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("수식을 입력하세요 : ");
+        String s = sc.nextLine();
+
+        System.out.println(calculation.operation(s));
     }
 
 }
