@@ -20,8 +20,7 @@ public class Computer {
 
     public List<Integer> getBallNumbers() {
         List<Integer> ballNumbers = new ArrayList<>();
-        for (int i = 0; i < ballBox.size(); i++) {
-            Ball ball = ballBox.get(i);
+        for (Ball ball : ballBox) {
             ballNumbers.add(ball.getBallNumber());
         }
 

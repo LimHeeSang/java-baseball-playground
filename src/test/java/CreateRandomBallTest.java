@@ -20,14 +20,14 @@ public class CreateRandomBallTest {
     }
 
     @Test
-    @DisplayName("만든 숫자 중 겹치는 숫자가 있는지 검증")
+    @DisplayName("랜덤 야구공 중 겹치는 숫자가 있는지 검증")
     void validateDuplication() {
         computer.createRandomBall();
 
         List<Integer> ballNumbers = computer.getBallNumbers();
 
-        Assertions.assertTrue(ballNumbers.get(0) != ballNumbers.get(1)
-                && ballNumbers.get(1) != ballNumbers.get(2) && ballNumbers.get(0) != ballNumbers.get(2));
+        Assertions.assertFalse(ballNumbers.get(0).equals(ballNumbers.get(1))
+                && ballNumbers.get(1).equals(ballNumbers.get(2)) && ballNumbers.get(0).equals(ballNumbers.get(2)));
     }
 
 }

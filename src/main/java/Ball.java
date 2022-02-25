@@ -5,16 +5,15 @@ public class Ball {
 
     public Ball(int index, int number) {
         validateIndexAndNumber(index, number);
-
         this.index = index;
         this.number = number;
     }
 
     private void validateIndexAndNumber(int index, int number) {
-        if (index < 0 && index > 3) {
+        if (index < 0 || index > 3) {
             throw new IllegalArgumentException();
         }
-        if (number < 0 && number > 9) {
+        if (number < 0 || number > 9) {
             throw new IllegalArgumentException();
         }
     }
@@ -25,6 +24,9 @@ public class Ball {
 
     @Override
     public boolean equals(Object obj) {
-        return number == ((Ball) obj).getBallNumber();
+        if(obj instanceof Ball){
+            return number == ((Ball) obj).getBallNumber();
+        }
+        return false;
     }
 }
