@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class CreateRandomNumberTest {
+public class CreateRandomBallTest {
     private final Computer computer = new Computer();
 
     @Test
     @DisplayName("1~9의 랜덤야구공 만들기")
     void createRandomNumber() {
-        List<Ball> randomBalls = computer.createRandomNumber();
+        List<Ball> randomBalls = computer.createRandomBall();
 
         for (int i = 0; i < Referee.GAME_TRY; i++) {
             Ball ball = randomBalls.get(i);
@@ -22,7 +22,7 @@ public class CreateRandomNumberTest {
     @Test
     @DisplayName("만든 숫자 중 겹치는 숫자가 있는지 검증")
     void validateDuplication() {
-        computer.createRandomNumber();
+        computer.createRandomBall();
 
         List<Integer> ballNumbers = computer.getBallNumbers();
 
