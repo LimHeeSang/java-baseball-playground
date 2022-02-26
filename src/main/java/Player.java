@@ -16,6 +16,7 @@ public class Player {
         String data = scanner.next();
         String[] numbers = data.split("");
 
+        ballBox.clear();
         for (int i = 0; i < Referee.GAME_TRY; i++) {
             ballBox.add(new Ball(i + 1, Integer.parseInt(numbers[i])));
         }

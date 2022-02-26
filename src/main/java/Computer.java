@@ -6,6 +6,7 @@ public class Computer {
 
     public List<Ball> createRandomBall() {
         int idx = 1;
+
         while (ballBox.size() < Referee.GAME_TRY) {
             int randomNumber = (int) (Math.random() * 9) + 1;
             Ball ball = new Ball(idx, randomNumber);
@@ -16,6 +17,10 @@ public class Computer {
         }
 
         return ballBox;
+    }
+
+    public void initBallBox() {
+        ballBox.clear();
     }
 
     public List<Integer> getBallNumbers() {

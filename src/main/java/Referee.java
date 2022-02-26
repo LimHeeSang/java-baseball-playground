@@ -5,14 +5,18 @@ public class Referee {
     private int ball = 0;
     private int strike = 0;
 
-
     public PlayResult judge(List<Ball> computerBalls, List<Ball> playerBalls) {
+        initScore();
         for (Ball playerBall : playerBalls) {
             judgeEachBall(computerBalls, playerBall);
         }
         return new PlayResult(ball, strike);
     }
 
+    private void initScore() {
+        ball = 0;
+        strike = 0;
+    }
 
     private void judgeEachBall(List<Ball> computerBalls, Ball playerBall) {
         for (Ball computerBall : computerBalls) {
