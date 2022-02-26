@@ -22,6 +22,14 @@ public class Ball {
         return number;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public boolean isEqualIndex(Ball otherBall) {
+        return index == otherBall.index;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Ball){
