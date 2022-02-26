@@ -12,7 +12,8 @@ public class Player {
 
     private void inputData() {
         Scanner scanner = new Scanner(System.in);
-        String data = scanner.nextLine();
+        System.out.println("숫자를 입력해 주세요 : ");
+        String data = scanner.next();
         String[] numbers = data.split("");
 
         for (int i = 0; i < Referee.GAME_TRY; i++) {
